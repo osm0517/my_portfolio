@@ -1,0 +1,71 @@
+#login_box{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    width: 60%;
+    /*background-color: blue;*/
+    height: 100%;
+}
+#login{
+    stroke-opacity: 0;
+}
+#password_search{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 5%;
+}
+#top_box{
+    margin-top: 10%;
+}
+#auto_login_div{
+    display: flex;
+    float: left;
+    align-items: flex-start;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.buttons{
+    background-color: #000;
+    color: white;
+    border-radius: 10px;
+    margin-bottom: 3%;
+    cursor: pointer;
+}
+.signin{
+    height:10vh;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 2%;
+}
+.search{
+    border: none;
+    background-color: white;
+    width: fit-content;
+    height: fit-content;
+    font-size: 2vh;
+    cursor: pointer
+}
+input{
+    height: 10%;
+    width: 50%;
+    text-indent: 3%;
+    font-weight: 600;
+    font-size: 15px;
+}
+h1{
+    text-align: center;
+}
+a{
+    text-decoration: none;
+    color: black;
+}
+body{
+    overflow-y: hidden;
+}
+@media screen and (max-width:764px) {
+    input{
+        width: 90%;
+    }
+}
