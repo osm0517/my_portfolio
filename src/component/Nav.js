@@ -4,6 +4,48 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import $ from 'jquery';
 
 function Nav({testAnime, value}){
+    const testLists = [
+        {
+            listName : "test1",
+            listText : ["test1Text","dkdkdk"],
+            listPath : "/test1"
+        },
+        {
+            listName : "test2",
+            listText : ["test2Text"],
+            listPath : "/test2"
+        },
+        {
+            listName : "test3",
+            listText : ["test3Text"],
+            listPath : "/test3"
+        },
+        {
+            listName : "test4",
+            listText : ["test4Text"],
+            listPath : "/test4"
+        }
+    ]
+
+    const sideRender = testLists.map(list => {
+        return(
+            <div>
+                <div id="side-title-div">
+                    {/* 토글 버튼 -> 타이틀 */}
+                    <div className="triangle"/>
+                    <div id='side-title'><p>{list.listName}</p></div>
+                </div>
+                {/* 본문 */}
+                <div>
+                    <ul>
+                        {list.listText.map(text => {
+                            return <p id="side-text">{text}</p> 
+                        })}
+                    </ul>
+                </div>
+            </div>
+        )
+    })
     
     //스크롤을 함으로써 생기는 액션을 정의한 곳
     // const [opacityValue, setOpacityValue] = useState(value);
@@ -42,9 +84,9 @@ function Nav({testAnime, value}){
     }
 
     const navClickEvent = () => {
-        const sideState = $('#d').css('display');
-        if(sideState === "none") return $('#d').css('display', 'block');
-        $('#d').css('display', 'none');
+        const sideState = $('#side-div').css('display');
+        if(sideState === "none") return $('#side-div').css('display', 'flex');
+        $('#side-div').css('display', 'none');
     }
 
     //렌더링 하는 곳
@@ -60,8 +102,8 @@ function Nav({testAnime, value}){
                     <div />
                 </div>
             </div>
-            <div id="d">
-
+            <div id="side-div">
+                {sideRender}
             </div>
             {/* <div className="menu-div" onClick={navDivToggle}>
                 <div className="menu-bar"></div>
