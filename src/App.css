@@ -22,10 +22,12 @@
   margin-bottom: 5%;
 }
 #b{
-  width: 100vw;
-  height: 100vh;
-  background-color: orange;
+  width: 80%;
+  border: 2px solid black;
+  overflow:initial;
   margin-top: 86px; /*상단바의 크기만큼 margin 시켜줌*/
+  margin-left: auto;
+  margin-right: auto;
 }
 #title{
   text-decoration: none;
@@ -39,8 +41,11 @@
   display: none;
   flex-direction: column;
   align-items: center;
+  overflow: auto;
 }
-#side-title{
+#side-title a{
+  text-decoration: none;
+  color: black;
   text-align: center;
   font-weight: bold;
   font-size: 4vw;
@@ -55,11 +60,42 @@
 }
 #side-title-div{
   display: inline-flex;
+  width: 22vw;
+  text-align: left;
   align-items: center;
   cursor: pointer;
+  margin-top: 2vh;
+}
+#side-text-div{
+  display: flex;
+}
+#text-div{
+  margin: 3vh;
 }
 #side-text{
   font-size: 3vw;
+  color: black;
+}
+#document-title{
+  margin-right: 10%;
+}
+#document-title h3{
+  letter-spacing: 3px;
+}
+#document-text p{
+  width: 90%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  word-break: break-all;
+}
+#document-text{
+  margin: 10% auto;
+  font-size: 3vw;
+}
+#document-div{
+  margin-left: 10%;
+  margin-bottom: 15%;
 }
 /* Mobile - Landscape 가로모드
 기본이 세로 모드*/
@@ -67,10 +103,28 @@
   #side-div{
     width: 40vw;
     height: 100vh;
-    background-color: red;
     right: 0;
     position: fixed;
     display: none;
+  }
+
+  #side-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  #side-text{
+    font-size: 2vw;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 1.5vh solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: calc( 1vw * 1.732 ) solid black;
+    margin-right: 1vw;
   }
 }
 
@@ -84,6 +138,25 @@
     position: fixed;
     display: none;
   }
+
+  #side-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  #side-text{
+    font-size: 2vw;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 1.5vh solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: calc( 1vw * 1.732 ) solid black;
+    margin-right: 1vw;
+  }
 }
 
 /* Desktop */
@@ -96,6 +169,25 @@
     position: fixed;
     display: none;
   }
+
+  #side-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 3vw;
+  }
+
+  #side-text{
+    font-size: 2vw;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 1.5vh solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: calc( 1vw * 1.732 ) solid black;
+    margin-right: 1vw;
+  }
 }
 
 /* Desktop (Large) */
@@ -107,6 +199,25 @@
     right: 0;
     position: fixed;
     display: none;
+  }
+
+  #side-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 2vw;
+  }
+
+  #side-text{
+    font-size: 2vw;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 1.5vh solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: calc( 1vw * 1.732 ) solid black;
+    margin-right: 1vw;
   }
 }
 /* .document-div{

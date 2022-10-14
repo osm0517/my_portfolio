@@ -42,9 +42,7 @@ function App() {
     <div className='body'>
       <Nav/>
       <div id='b'>
-        <div id='c'>
-          adfdas
-        </div>
+        <Document/>
       </div>
       {/* <div className="App"> */}
       {/* <div className='nav-div'>

@@ -6,42 +6,42 @@ import $ from 'jquery';
 function Nav({testAnime, value}){
     const testLists = [
         {
-            listName : "test1",
-            listText : ["test1Text","dkdkdk"],
-            listPath : "/test1"
+            listName : "Frontend",
+            listText : ["react"],
+            titlePath : "/Frontend",
+            listPath : ["/react"]
         },
         {
-            listName : "test2",
-            listText : ["test2Text"],
-            listPath : "/test2"
+            listName : "Backend",
+            listText : ["express.js", "springboot"],
+            titlePath : "/Backend",
+            listPath : ["/express", "/springboot"]
         },
         {
-            listName : "test3",
-            listText : ["test3Text"],
-            listPath : "/test3"
-        },
-        {
-            listName : "test4",
-            listText : ["test4Text"],
-            listPath : "/test4"
+            listName : "GitHub",
+            listText : [""],
+            titlePath : ["https://github.com/osm0517"],
+            listPath : [""]
         }
     ]
 
     const sideRender = testLists.map(list => {
         return(
-            <div>
+            <div >
                 <div id="side-title-div">
                     {/* 토글 버튼 -> 타이틀 */}
                     <div className="triangle"/>
-                    <div id='side-title'><p>{list.listName}</p></div>
+                    <div id='side-title'><a href={list.titlePath}>{list.listName}</a></div>
                 </div>
                 {/* 본문 */}
-                <div>
-                    <ul>
+                <div id="side-text-div">
+                    <div>
                         {list.listText.map(text => {
-                            return <p id="side-text">{text}</p> 
+                            return(
+                                <div id="text-div"><a href={list.listPath} id="side-text">{text}</a></div>
+                            ) 
                         })}
-                    </ul>
+                    </div>
                 </div>
             </div>
         )
