@@ -1,4 +1,5 @@
 import React, {useState}from "react";
+import { Link } from "react-router-dom";
 import "./Document.css";
 
 
@@ -27,10 +28,14 @@ function Document() {
     //받아온 데이터를 그려줌
     const boardRender = testBoardData.map(data => {
         return (
-            <div id="document-div">
-                <div id="document-title"><h3>{data.boardTitle}</h3></div>
-                <div id="document-text"><p>{data.boardText}</p></div>
-            </div>
+            //데이터 베이스 구축하면 받은 데이터에서
+            // to={`/list/${data.part}/${data.stack}/${data.id}`}
+            <Link to={``}>
+                <div id="document-div">
+                    <div id="document-title"><h3>{data.boardTitle}</h3></div>
+                    <div id="document-text"><p>{data.boardText}</p></div>
+                </div>
+            </Link>
         )
     })
 

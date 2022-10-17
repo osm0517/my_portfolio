@@ -126,6 +126,12 @@
   margin-right: 2vw;
   margin: 2vh 1vw;
 }
+h1{
+  color: black;
+}
+p{
+  color: black;
+}
 /* Mobile - Landscape 가로모드
 기본이 세로 모드*/
 @media (min-width: 576px) {

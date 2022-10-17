@@ -3,7 +3,9 @@ import React, {useState, useEffect} from 'react';
 import Nav from './component/Nav';
 import Document from './component/Document';
 import Write from './component/Write_page/Write';
+import Home from './component/Home_page/Home'
 import $ from 'jquery';
+import { Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 
 let value = 0;
 
@@ -40,26 +42,34 @@ function App() {
   },[])
 
   return (
-    <div className='body'>
-      <Nav/>
-      <div id='b'>
-        {/* <Document/> */}
-        <Write/>
-      </div>
-      {/* <div className="App"> */}
-      {/* <div className='nav-div'>
-        <Nav testAnime = { testAnime } value = { value }/>
-      </div> */}
-        {/* <div >
-          <p className='typing'></p>
+    <BrowserRouter>
+      <div className='body'>
+        <Nav/>
+        <div id='b'>
+          <Routes>
+            <Route path='/' element={<Home/>}></Route>
+            <Route path='/list/*' element={<Document/>}></Route>
+            <Route path='/write' element={<Write/>}></Route>
+          </Routes>
+          
+        </div>
+        
+        {/* <div className="App"> */}
+        {/* <div className='nav-div'>
+          <Nav testAnime = { testAnime } value = { value }/>
         </div> */}
-      {/* </div> */}
-      {/* <div className='document-div'>
-        <Document />
-      </div> */}
-      {/* <div className='blog' />
-      <div className='github' /> */}
-    </div>
+          {/* <div >
+            <p className='typing'></p>
+          </div> */}
+        {/* </div> */}
+        {/* <div className='document-div'>
+          <Document />
+        </div> */}
+        {/* <div className='blog' />
+        <div className='github' /> */}
+      </div>
+    </BrowserRouter>
+    
   );
 };
 

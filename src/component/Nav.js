@@ -13,7 +13,7 @@ function Nav({testAnime, value}){
         },
         {
             listName : "Backend",
-            listText : ["express.js", "springboot"],
+            listText : ["express", "springboot"],
             titlePath : "/Backend",
             listPath : ["/express", "/springboot"]
         },
@@ -31,18 +31,23 @@ function Nav({testAnime, value}){
                 <div id="side-title-div">
                     {/* 토글 버튼 -> 타이틀 */}
                     <div className="triangle"/>
-                    <div id='side-title'><a href={list.titlePath}>{list.listName}</a></div>
+                    <Link to={`/list/${list.listName.toLowerCase()}`}>
+                        <div id='side-title'><p>{list.listName}</p></div>
+                    </Link>
                 </div>
                 {/* 본문 */}
                 <div id="side-text-div">
                     <div>
                         {list.listText.map(text => {
                             return(
-                                <div id="text-div"><a href={list.listPath} id="side-text">{text}</a></div>
+                                <Link to={`/list/${list.listName.toLowerCase()}/${text}`}>
+                                    <div id="text-div"><p>{text}</p></div>
+                                </Link>
                             ) 
                         })}
                     </div>
                 </div>
+                
             </div>
         )
     })
@@ -91,10 +96,13 @@ function Nav({testAnime, value}){
 
     //렌더링 하는 곳
     return(
-        <BrowserRouter>
+        // <BrowserRouter>
+        <>
             <div id='nav'>
                 <div>
-                    <h1><a id='title' href="/">SUNGMIN</a></h1>
+                    <Link to='/'>
+                        <h1>SUNGMIN</h1>
+                    </Link>
                 </div>
                 <div id='nav-btn' onClick={navClickEvent}>
                     <div />
@@ -104,6 +112,9 @@ function Nav({testAnime, value}){
             </div>
             <div id="side-div">
                 {sideRender}
+                <Link to='/write'>
+                    <div><p>create Project</p></div>
+                </Link>
             </div>
             {/* <div className="menu-div" onClick={navDivToggle}>
                 <div className="menu-bar"></div>
@@ -115,7 +126,7 @@ function Nav({testAnime, value}){
                 <a href="https://github.com/osm0517" id="gitHub"> <p>Github</p> </a>
             </div> */}
             {/* <img className = "up" src={process.env.PUBLIC_URL + `/img/up.png`}/> */}
-        </BrowserRouter>
+        </>
     );
 }
 
