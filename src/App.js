@@ -2,6 +2,7 @@ import './App.css';
 import React, {useState, useEffect} from 'react';
 import Nav from './component/Nav';
 import Document from './component/Document';
+import Write from './component/Write_page/Write';
 import $ from 'jquery';
 
 let value = 0;
@@ -42,7 +43,8 @@ function App() {
     <div className='body'>
       <Nav/>
       <div id='b'>
-        <Document/>
+        {/* <Document/> */}
+        <Write/>
       </div>
       {/* <div className="App"> */}
       {/* <div className='nav-div'>

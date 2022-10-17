@@ -96,6 +96,35 @@
 #document-div{
   margin-left: 10%;
   margin-bottom: 15%;
+  border: 1px solid black;
+  border-radius: 2%;
+}
+#write-div input{
+  width: 100%;
+  height: 4vh;
+  margin: 5px auto;
+  text-indent: 2vw;
+  letter-spacing: 2px;
+  border: 2px solid black;
+  border-radius: 1vh;
+}
+#write-div textarea{
+  width: 100%;
+  height: 20vh;
+  text-indent: 2vw;
+  border: 2px solid black;
+  border-radius: 2vw;
+  overflow: auto;
+  resize: none;
+}
+#write-div{
+  width: 90%;
+  margin: auto;
+  
+}
+#write-div select{
+  margin-right: 2vw;
+  margin: 2vh 1vw;
 }
 /* Mobile - Landscape 가로모드
 기본이 세로 모드*/
