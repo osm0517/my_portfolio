@@ -14,15 +14,13 @@ function Document() {
     const testBoardData = [
         {
             boardTitle : "testTitle1",
-            boardText : "testTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestText"
+            boardText : "testTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestText",
+            boardId : 1
         },
         {
             boardTitle : "testTitle2",
-            boardText : "testTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestText"
-        },
-        {
-            boardTitle : "testTitle3",
-            boardText : "testTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestText"
+            boardText : "testTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestTexttestText",
+            boardId : 2
         }
     ]
     //받아온 데이터를 그려줌
@@ -30,12 +28,20 @@ function Document() {
         return (
             //데이터 베이스 구축하면 받은 데이터에서
             // to={`/list/${data.part}/${data.stack}/${data.id}`}
-            <Link to={``}>
+            
+            <Link to={"/list/"+data.boardId}>
                 <div id="document-div">
-                    <div id="document-title"><h3>{data.boardTitle}</h3></div>
+                    <div id="document-image">
+                        <div className="image1"></div>
+                        <div className="image2"></div>
+                        <div className="image3"></div>
+                        <div className="image4"></div>
+                    </div>
+                    <div id="document-title"><p>{data.boardTitle}</p></div>
                     <div id="document-text"><p>{data.boardText}</p></div>
                 </div>
             </Link>
+            
         )
     })
 
@@ -43,12 +49,8 @@ function Document() {
     const publicPath = process.env.PUBLIC_URL
 
     return (
-        <div className="d-body">
-            <img src={publicPath+"/img/blog.jpg"} className="img-div" alt="프로젝트 사진"/>
-            <div className="text-div">
-                {boardRender}
-            </div>
-            
+        <div className="d">
+            {boardRender}
         </div>
     );
 }
