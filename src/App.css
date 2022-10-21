@@ -1,60 +1,5 @@
-#nav{
-  background-color: rgba(255, 255, 255, 0.868);
-  width: 100vw;
-  position: fixed;
-  text-align: center;
-  top: 0; /*fixed 된 요소를 상단에 고정시켜줌*/
-}
-#nav-btn{
-  cursor: pointer;
-  position: absolute;
-  right: 10%;
-  top: 40%;
-}
-#nav-btn div{
-  background-color: black;
-  width: 30px;
-  height: 5px;
-  margin-bottom: 5%;
-}
-
 #title{
   text-decoration: none;
-  color: black;
-}
-#side-div{
-  width: 100vw;
-  background-color: rgba(255, 255, 255, 0.868);
-  position: fixed;
-  display: none;
-  flex-direction: column;
-  align-items: center;
-  overflow: auto;
-  top: 15%;
-}
-#side-title a{
-  text-decoration: none;
-  color: black;
-  text-align: center;
-  font-weight: bold;
-  font-size: 4vw;
-}
-.triangle {
-  width: 0px;
-  height: 0px;
-  border-bottom: 1.5vh solid transparent;
-  border-top: 1.5vh solid transparent;
-  border-left: calc( 1.5vw * 1.732 ) solid black;
-  margin-right: 5px;
-}
-#side-title-div{
-  display: inline-flex;
-  width: 22vw;
-  align-items: center;
-  cursor: pointer;
-}
-#side-text{
-  font-size: 3vw;
   color: black;
 }
 
@@ -135,13 +80,15 @@
 }
 
 #b{
+  border-left: 4px solid black;
+  border-right: 4px solid black;
   display: inline-block;
-  height: 100%;
+  height: 80%;
   width: 80%;
-  border: 2px solid black;
-  margin: auto auto;
+  margin-left: auto;
+  margin-right: auto;
   /* overflow-y: hidden; */
-  margin-top: 20%; /*상단바의 크기만큼 margin 시켜줌*/
+  margin-top: 35%; /*상단바의 크기만큼 margin 시켜줌*/
 }
 
 .d{
@@ -198,29 +145,7 @@ p{
   color: black;
 }
 
-.home-div{
-  margin-top: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
-.blog-title-div p{
-  font-weight: bold;
-  font-size: 5vw;
-}
-
-.blog-title-div{
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.list-btn{
-  margin-top: 120%;
-  border: 2px solid black;
-  border-radius: 8%;
-}
 
 /* Mobile - Landscape 가로모드
 기본이 세로 모드*/

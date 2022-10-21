@@ -1,68 +1,101 @@
-.menu-bar {
-    background-color : black;
-    width: 20px;
-    height: 3px;
-    margin-top: 0.5vh;
-}
-
-.menu-div{
-    margin-top: 4vh;
-    margin-left: 3vw;
-    display: none;
-    flex-direction: column;
-    position: fixed;
-    background-color: transparent;
-    cursor: pointer;
-}
-
-.nav-div{
-    width: 100%;
-    background-color: rgb(254, 179, 37);
-}
-
-
-.nav-div p{
-    letter-spacing: 2px;
-    cursor: pointer;
-    font-size: 5vh;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10vh;
-    color: white;
-}
-
 a{
     text-decoration: none;
 }
 
-.up{
-    width: 7vw;
-    height: 7vh;
+#nav{
+    background-color: white;
+    width: 100vw;
     position: fixed;
-    margin-top: 85vh;
-    margin-left: 85vw;
+    text-align: center;
+    top: 0; /*fixed 된 요소를 상단에 고정시켜줌*/
+}
+
+#nav-btn{
     cursor: pointer;
-    opacity: 0;
+    position: absolute;
+    right: 10%;
+    top: 40%;
 }
-@media (max-width:500px){
-    .nav-div p{
-        font-size: 3vh;
-        letter-spacing: 1px;
-    }
 
-    .nav-div{
-        display: none;
-    }
-
-    .menu-div{
-        display: flex;
-    }
-
-    .up{
-        width: 7vw;
-        height: 7vh;
-        position: fixed;
-        margin-top: 85vh;
-        margin-left: 85vw;
-    }
+#nav-btn div{
+    background-color: black;
+    width: 30px;
+    height: 5px;
+    margin-bottom: 5%;
 }
+
+.render-div{
+  background-color: red;
+  width: 50vw;
+}
+
+.side-div{
+    width: 100vw;
+    background-color: white;
+    position: fixed;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    overflow: auto;
+    top: 15%;
+}
+
+.side-div-open{
+  display: flex;
+}
+
+.side-div-close{
+  display: none;
+}
+
+#side-title a{
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    font-weight: bold;
+    font-size: 4vw;
+  }
+
+  .triangle {
+    width: 0px;
+    height: 0px;
+    border-bottom: 1.5vh solid transparent;
+    border-top: 1.5vh solid transparent;
+    border-left: calc( 1.5vw * 1.732 ) solid black;
+    margin-right: 5px;
+    
+  }
+
+  .side-text-div{
+    display: none;
+  }
+
+  .click-triangle{
+    transform: rotate(90deg) translateX(2px) translateY(3px);
+  }
+
+  .non-click-triangle{
+    transform: rotate(0deg) translateX(0px) translateY(0px);
+  }
+
+  .side-title-div{
+    background-color: red;
+    display: flex;
+    width: 22vw;
+    align-items: center;
+    cursor: pointer;
+  }
+
+
+  .side-text-div{
+    width: 50vw;
+    background-color: red;
+  }
+
+  #side-text{
+    font-size: 3vw;
+    color: black;
+  }
+
+
+  

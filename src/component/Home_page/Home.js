@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link } from "react-router-dom";
+import './Home.css';
 
 function Home() {
     const typingTxt = "오성민의 프로젝트를 소개합니다";
@@ -14,7 +15,7 @@ function Home() {
           setCount(count + 1);
           return result;
         });
-      }, 300);
+      }, 200);
       if(count >= typingTxt.length) clearInterval(typingInterval);
       return () => {
         clearInterval(typingInterval);
@@ -22,12 +23,12 @@ function Home() {
     });
 
     return (
-        <div className="home-div">
+        <>
             <div className='blog-title-div'><p> {blogTitle} </p></div>
             <Link to='/list'>
                 <div className="list-btn"><p>포트폴리오 보러 가기</p></div>
             </Link>
-        </div>
+        </>
     )
 }
 

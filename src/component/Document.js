@@ -49,9 +49,9 @@ function Document() {
     const publicPath = process.env.PUBLIC_URL
 
     return (
-        <div className="d">
+        <>
             {boardRender}
-        </div>
+        </>
     );
 }
 

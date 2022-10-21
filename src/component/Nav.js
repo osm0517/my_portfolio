@@ -4,6 +4,25 @@ import { BrowserRouter, Link } from 'react-router-dom';
 import $ from 'jquery';
 
 function Nav({testAnime, value}){
+    const [isOpen, setIsOpen] = useState(false);
+    const [isClick, setIsClick] = useState(false);
+
+    const navClickEvent = () => {
+        setIsOpen(isOpen => !isOpen)
+    }
+
+    const titleClickEvent = (childId, triangleId) => {
+        setIsClick(isClick => !isClick);
+        $(`#${childId}`).slideToggle();
+        $(`#${triangleId}`).slideToggle();
+        
+    }
+
+    //클릭 이벤트를 정리해놓은 곳
+    $('.up').on("click", () => {
+        $('html').animate({scrollTop : 0}, 400);
+    });
+
     const testLists = [
         {
             listName : "Frontend",
@@ -16,27 +35,21 @@ function Nav({testAnime, value}){
             listText : ["express", "springboot"],
             titlePath : "/Backend",
             listPath : ["/express", "/springboot"]
-        },
-        {
-            listName : "GitHub",
-            listText : [""],
-            titlePath : ["https://github.com/osm0517"],
-            listPath : [""]
         }
     ]
 
     const sideRender = testLists.map(list => {
         return(
-            <div >
-                <div id="side-title-div">
+            <div className="render-div">
+                <div className="side-title-div">
                     {/* 토글 버튼 -> 타이틀 */}
-                    <div className="triangle"/>
-                    <Link to={`/list/${list.listName.toLowerCase()}`}>
-                        <div id='side-title'><p>{list.listName}</p></div>
-                    </Link>
+                    <div onClick={() => {
+                    titleClickEvent(list.listText[0], list.listName);}} 
+                    id={list.listName}className={`triangle ${isClick? 'click-triangle' : 'non-click-triangle'}`}/>
+                    <div id='side-title'><a href={`/list/${list.listName.toLowerCase()}`}>{list.listName}</a></div>
                 </div>
                 {/* 본문 */}
-                <div id="side-text-div">
+                <div className="side-text-div" id={list.listText[0]}>
                     <div>
                         {list.listText.map(text => {
                             return(
@@ -47,41 +60,13 @@ function Nav({testAnime, value}){
                         })}
                     </div>
                 </div>
-                
             </div>
         )
     })
     
 
-    //클릭 이벤트를 정리해놓은 곳
-    $('.up').on("click", () => {
-        $('html').animate({scrollTop : 0}, 400);
-    });
-
-    const navDivToggle = () => {
-        let currentWidth = $(window).width();
-        if(currentWidth <= 500){
-            //스마트폰 환경에서 볼 때를 가정
-            $('.nav-div').css('display', 'block');
-            // $('.menu-div').css('position', 'absolute');
-            
-        }
-    };
-
-    const testClickEvent = (tagName) => {
-        let clickTagId = tagName.target.id
-        testAnime(clickTagId);
-    }
-
-    const navClickEvent = () => {
-        const sideState = $('#side-div').css('display');
-        if(sideState === "none") return $('#side-div').css('display', 'flex');
-        $('#side-div').css('display', 'none');
-    }
-
     //렌더링 하는 곳
     return(
-        // <BrowserRouter>
         <>
             <div id='nav'>
                 <div>
@@ -95,8 +80,21 @@ function Nav({testAnime, value}){
                     <div />
                 </div>
             </div>
-            <div id="side-div">
+            <div className={`side-div ${isOpen? 'side-div-open' : 'side-div-close'}`}>
                 {sideRender}
+                <div>
+                    <div id="side-title-div" onClick={() => {
+                        titleClickEvent('1');
+                    }}>
+                        <div className={`triangle ${isClick? 'click-triangle' : 'non-click-triangle'}`}/>
+                        <div id='side-title'><p>dfas</p></div>
+                    </div>
+                    <div className="side-text-div" id="1">
+                        <div>
+                            <div id="text-div"><a href="https://github.com/osm0517">https://github.com/osm0517</a></div>
+                        </div>
+                    </div>
+                </div>
                 <Link to='/write'>
                     <div><p>create Project</p></div>
                 </Link>
