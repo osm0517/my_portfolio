@@ -22,10 +22,12 @@ function Home() {
       };
     });
 
+    const basicPath = `/my_portfolio`;
+
     return (
         <>
             <div className='blog-title-div'><p> {blogTitle} </p></div>
-            <Link to='/list'>
+            <Link to={`${basicPath}/list`}>
                 <div className="list-btn"><p>포트폴리오 보러 가기</p></div>
             </Link>
         </>

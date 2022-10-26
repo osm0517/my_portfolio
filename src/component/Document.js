@@ -5,6 +5,8 @@ import "./Document.css";
 
 function Document() {
 
+    const basicPath = `/my_portfolio`
+
     //서버 주소
     const serverPath = "http://localhost:8080/api";
 
@@ -29,7 +31,7 @@ function Document() {
             //데이터 베이스 구축하면 받은 데이터에서
             // to={`/list/${data.part}/${data.stack}/${data.id}`}
             
-            <Link to={"/list/"+data.boardId}>
+            <Link to={`${basicPath}/list/`+data.boardId}>
                 <div id="document-div">
                     <div id="document-image">
                         <div className="image1"></div>

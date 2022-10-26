@@ -25,8 +25,10 @@ a{
 }
 
 .render-div{
-  background-color: red;
-  width: 50vw;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .side-div{
@@ -67,7 +69,13 @@ a{
   }
 
   .side-text-div{
-    display: none;
+    text-align: center;
+    width: 50vw;
+    margin-bottom: 5%;
+  }
+
+  .side-text-div a{
+    color: black;
   }
 
   .click-triangle{
@@ -79,17 +87,9 @@ a{
   }
 
   .side-title-div{
-    background-color: red;
-    display: flex;
     width: 22vw;
-    align-items: center;
     cursor: pointer;
-  }
-
-
-  .side-text-div{
-    width: 50vw;
-    background-color: red;
+    margin-bottom: 10%;
   }
 
   #side-text{

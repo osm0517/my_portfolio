@@ -6,6 +6,8 @@ import $ from 'jquery';
 function Nav({testAnime, value}){
     const [isOpen, setIsOpen] = useState(false);
     const [isClick, setIsClick] = useState(false);
+    
+    const basicPath = `/my_portfolio`;   
 
     const navClickEvent = () => {
         setIsOpen(isOpen => !isOpen)
@@ -38,24 +40,20 @@ function Nav({testAnime, value}){
         }
     ]
 
+
     const sideRender = testLists.map(list => {
         return(
             <div className="render-div">
                 <div className="side-title-div">
                     {/* 토글 버튼 -> 타이틀 */}
-                    <div onClick={() => {
-                    titleClickEvent(list.listText[0], list.listName);}} 
-                    id={list.listName}className={`triangle ${isClick? 'click-triangle' : 'non-click-triangle'}`}/>
-                    <div id='side-title'><a href={`/list/${list.listName.toLowerCase()}`}>{list.listName}</a></div>
+                    <div id='side-title' ><a href={`${basicPath}/list/${list.listName.toLowerCase()}`}>{list.listName}</a></div>
                 </div>
                 {/* 본문 */}
                 <div className="side-text-div" id={list.listText[0]}>
                     <div>
                         {list.listText.map(text => {
                             return(
-                                <Link to={`/list/${list.listName.toLowerCase()}/${text}`}>
-                                    <div id="text-div"><p>{text}</p></div>
-                                </Link>
+                                <div className="text-div"><a href={`${basicPath}/list/${list.listName.toLowerCase()}/${text}`}>{text}</a></div>
                             ) 
                         })}
                     </div>
@@ -63,14 +61,14 @@ function Nav({testAnime, value}){
             </div>
         )
     })
-    
+ 
 
     //렌더링 하는 곳
     return(
         <>
             <div id='nav'>
                 <div>
-                    <Link to='/my_portfolio'>
+                    <Link to={`${basicPath}`}>
                         <h1>SUNGMIN</h1>
                     </Link>
                 </div>
@@ -82,20 +80,7 @@ function Nav({testAnime, value}){
             </div>
             <div className={`side-div ${isOpen? 'side-div-open' : 'side-div-close'}`}>
                 {sideRender}
-                <div>
-                    <div id="side-title-div" onClick={() => {
-                        titleClickEvent('1');
-                    }}>
-                        <div className={`triangle ${isClick? 'click-triangle' : 'non-click-triangle'}`}/>
-                        <div id='side-title'><p>dfas</p></div>
-                    </div>
-                    <div className="side-text-div" id="1">
-                        <div>
-                            <div id="text-div"><a href="https://github.com/osm0517">https://github.com/osm0517</a></div>
-                        </div>
-                    </div>
-                </div>
-                <Link to='/write'>
+                <Link to={`${basicPath}/write`}>
                     <div><p>create Project</p></div>
                 </Link>
             </div>

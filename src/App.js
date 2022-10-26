@@ -10,7 +10,24 @@ import { Router, Routes, Route, BrowserRouter} from 'react-router-dom';
 
 function App() {
 
+  const [email, setEmail] = useState("");
+  const serverTest = async () => {
+    fetch(`http://localhost:8080/user/test`, {
+      method : "POST",
+      headers : {
+        'Content-Type' : "application/json"
+      },
+      body : 
+        "email"
+      
+    })
+    .then(v =>v.json())
+    .then(v=> console.log(v))
+    // // .then(v => alert(v))
+    // .catch(err => alert(`error가 발생함 =>` + err));
+  }
 
+  const basicPath = `/my_portfolio`;
 
   return (
     <BrowserRouter>
@@ -18,11 +35,15 @@ function App() {
         <Nav/>
         <div id='b'>
           <Routes>
-            <Route path='/my_portfolio' element={<Home/>}></Route>
-            <Route path='/list/*' element={<Document/>}></Route>
-            <Route path='/write' element={<Write/>}></Route>
-            <Route path='/list/:id' element={<Detail/>}></Route>
+            <Route path={`${basicPath}`} element={<Home/>}></Route>
+            <Route path={`${basicPath}/list/:id/*`} element={<Detail/>}></Route>
+            <Route path={`${basicPath}/list/*`} element={<Document/>}></Route>
+            <Route path={`${basicPath}/write`} element={<Write/>}></Route>
           </Routes>
+          {/* <input placeholder='email' onChange={(e) => setEmail(e.target.value)}></input>
+          <button onClick={() => {
+            serverTest()
+          }}> 전송 </button> */}
         </div>
       </div>
     </BrowserRouter>
